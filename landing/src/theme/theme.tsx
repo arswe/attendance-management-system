@@ -97,12 +97,20 @@ const getDesignTokens = (mode: PaletteMode) => ({
         dark: secondary[900],
       }),
     },
-    warning: { main: '#F7B538', dark: '#F79F00', ...(mode === 'dark' && { main: '#F7B538', dark: '#F79F00' }) },
+    warning: {
+      main: '#F7B538',
+      dark: '#F79F00',
+      ...(mode === 'dark' && { main: '#F7B538', dark: '#F79F00' }),
+    },
     error: {
       light: red[50],
       main: red[500],
       dark: red[700],
-      ...(mode === 'dark' && { light: '#D32F2F', main: '#D32F2F', dark: '#B22A2A' }),
+      ...(mode === 'dark' && {
+        light: '#D32F2F',
+        main: '#D32F2F',
+        dark: '#B22A2A',
+      }),
     },
     success: {
       light: green[300],
@@ -322,22 +330,34 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
               backgroundColor: alpha(brand[300], 0.1),
               borderColor: brand[300],
               color: brand[500],
-              '&:hover': { backgroundColor: alpha(brand[300], 0.3), borderColor: brand[200] },
+              '&:hover': {
+                backgroundColor: alpha(brand[300], 0.3),
+                borderColor: brand[200],
+              },
             }),
             ...(ownerState.variant === 'text' && {
               color: brand[500],
-              '&:hover': { backgroundColor: alpha(brand[300], 0.3), borderColor: brand[200] },
+              '&:hover': {
+                backgroundColor: alpha(brand[300], 0.3),
+                borderColor: brand[200],
+              },
             }),
             ...(theme.palette.mode === 'dark' && {
               ...(ownerState.variant === 'outlined' && {
                 backgroundColor: alpha(brand[600], 0.1),
                 borderColor: brand[700],
                 color: brand[300],
-                '&:hover': { backgroundColor: alpha(brand[600], 0.3), borderColor: brand[700] },
+                '&:hover': {
+                  backgroundColor: alpha(brand[600], 0.3),
+                  borderColor: brand[700],
+                },
               }),
               ...(ownerState.variant === 'text' && {
                 color: brand[300],
-                '&:hover': { backgroundColor: alpha(brand[600], 0.3), borderColor: brand[700] },
+                '&:hover': {
+                  backgroundColor: alpha(brand[600], 0.3),
+                  borderColor: brand[700],
+                },
               }),
             }),
           }),
@@ -353,14 +373,23 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
             transition: 'background-color, border, 80ms ease',
             ...(ownerState.variant === 'outlined' && {
               background: `linear-gradient(to bottom, #FFF, ${gray[50]})`,
-              '&:hover': { borderColor: brand[300], boxShadow: `0 0 24px ${brand[100]}` },
+              '&:hover': {
+                borderColor: brand[300],
+                boxShadow: `0 0 24px ${brand[100]}`,
+              },
             }),
             ...(theme.palette.mode === 'dark' && {
               backgroundColor: alpha(gray[800], 0.6),
               border: `1px solid ${alpha(gray[700], 0.3)}`,
               ...(ownerState.variant === 'outlined' && {
-                background: `linear-gradient(to bottom, ${gray[900]}, ${alpha(gray[800], 0.5)})`,
-                '&:hover': { borderColor: brand[700], boxShadow: `0 0 24px ${brand[800]}` },
+                background: `linear-gradient(to bottom, ${gray[900]}, ${alpha(
+                  gray[800],
+                  0.5
+                )})`,
+                '&:hover': {
+                  borderColor: brand[700],
+                  boxShadow: `0 0 24px ${brand[800]}`,
+                },
               }),
             }),
           }),
@@ -377,7 +406,10 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
             borderColor: `${alpha(brand[500], 0.3)}`,
             fontWeight: '600',
             '&:hover': { backgroundColor: brand[500] },
-            '&:focus-visible': { borderColor: brand[800], backgroundColor: brand[200] },
+            '&:focus-visible': {
+              borderColor: brand[800],
+              backgroundColor: brand[200],
+            },
             '& .MuiChip-label': { color: brand[500] },
             '& .MuiChip-icon': { color: brand[500] },
             ...(theme.palette.mode === 'dark' && {
