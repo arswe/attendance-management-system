@@ -1,6 +1,13 @@
 import ModeNightRoundedIcon from '@mui/icons-material/ModeNightRounded'
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded'
-import { Box, CssBaseline, Divider, PaletteMode, ToggleButton, ToggleButtonGroup } from '@mui/material'
+import {
+  Box,
+  CssBaseline,
+  Divider,
+  PaletteMode,
+  ToggleButton,
+  ToggleButtonGroup,
+} from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useState } from 'react'
 import FAQ from './components/FAQ'
@@ -22,7 +29,10 @@ interface ToggleCustomThemeProps {
   toggleCustomTheme: () => void
 }
 
-function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }: ToggleCustomThemeProps) {
+function ToggleCustomTheme({
+  showCustomTheme,
+  toggleCustomTheme,
+}: ToggleCustomThemeProps) {
   return (
     <Box
       sx={{
@@ -40,7 +50,10 @@ function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }: ToggleCustomT
         value={showCustomTheme}
         onChange={toggleCustomTheme}
         aria-label='Platform'
-        sx={{ backgroundColor: 'background.default', '& .Mui-selected': { pointerEvents: 'none' } }}
+        sx={{
+          backgroundColor: 'background.default',
+          '& .Mui-selected': { pointerEvents: 'none' },
+        }}
       >
         <ToggleButton value>
           <WbSunnyRoundedIcon sx={{ fontSize: '1rem', mr: 1 }} />
@@ -92,7 +105,10 @@ const App = () => {
         <Divider />
         <Footer />
       </Box>
-      <ToggleCustomTheme showCustomTheme={showCustomTheme} toggleCustomTheme={toggleCustomTheme} />
+      <ToggleCustomTheme
+        showCustomTheme={showCustomTheme}
+        toggleCustomTheme={toggleCustomTheme}
+      />
     </ThemeProvider>
   )
 }
