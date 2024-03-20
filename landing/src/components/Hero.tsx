@@ -1,5 +1,14 @@
-import { Box, Button, Container, Link, Stack, TextField, Typography } from '@mui/material'
-import HeroImage from './HeroImage'
+import {
+  alpha,
+  Box,
+  Button,
+  Container,
+  Link,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material'
+import HeroImage from './common/HeroImage'
 
 export default function Hero() {
   return (
@@ -10,7 +19,7 @@ export default function Hero() {
         backgroundImage:
           theme.palette.mode === 'light'
             ? 'linear-gradient(180deg, #CEE5FD, #FFF)'
-            : 'linear-gradient(#02294F, #090E10)',
+            : `linear-gradient(#02294F, ${alpha('#090E10', 0.0)})`,
         backgroundSize: '100% 20%',
         backgroundRepeat: 'no-repeat',
       })}
@@ -26,13 +35,13 @@ export default function Hero() {
       >
         <Stack spacing={2} useFlexGap sx={{ width: { xs: '100%', sm: '70%' } }}>
           <Typography
-            component='h1'
             variant='h1'
             sx={{
               display: 'flex',
               flexDirection: { xs: 'column', md: 'row' },
               alignSelf: 'center',
               textAlign: 'center',
+              fontSize: 'clamp(3.5rem, 10vw, 4rem)',
             }}
           >
             Our latest&nbsp;
@@ -40,15 +49,24 @@ export default function Hero() {
               component='span'
               variant='h1'
               sx={{
-                color: (theme) => (theme.palette.mode === 'light' ? 'primary.main' : 'primary.light'),
+                fontSize: 'clamp(3rem, 10vw, 4rem)',
+                color: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? 'primary.main'
+                    : 'primary.light',
               }}
             >
-              Products
+              products
             </Typography>
           </Typography>
-          <Typography variant='body1' textAlign='center' color='text.secondary'>
-            Explore our cutting-edge dashboard, delivering high-quality solutions tailored to your needs. <br />
-            Elevate your experience with top-tier features and services.
+          <Typography
+            textAlign='center'
+            color='text.secondary'
+            sx={{ alignSelf: 'center', width: { sm: '100%', md: '80%' } }}
+          >
+            Explore our cutting-edge dashboard, delivering high-quality
+            solutions tailored to your needs. Elevate your experience with
+            top-tier features and services.
           </Typography>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -62,15 +80,23 @@ export default function Hero() {
               hiddenLabel
               size='small'
               variant='outlined'
-              fullWidth
+              aria-label='Enter your email address'
               placeholder='Your email address'
+              inputProps={{
+                autoComplete: 'off',
+                ariaLabel: 'Enter your email address',
+              }}
             />
             <Button variant='contained' color='primary'>
-              Joint
+              Start now
             </Button>
           </Stack>
-          <Typography variant='caption' textAlign='center' sx={{ opacity: 0.8 }}>
-            By clicking &quot;Joint&quot; you agree to our&nbsp;
+          <Typography
+            variant='caption'
+            textAlign='center'
+            sx={{ opacity: 0.8 }}
+          >
+            By clicking &quot;Start now&quot; you agree to our&nbsp;
             <Link href='#' color='primary'>
               Terms & Conditions
             </Link>

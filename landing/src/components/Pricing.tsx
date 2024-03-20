@@ -1,38 +1,16 @@
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome'
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded'
-import { Box, Button, Card, CardActions, CardContent, Chip, Container, Divider, Grid, Typography } from '@mui/material'
-
-const tiers = [
-  {
-    title: 'Free',
-    price: '0',
-    description: ['10 users included', '2 GB of storage', 'Help center access', 'Email support'],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: 'Professional',
-    subheader: 'Recommended',
-    price: '15',
-    description: [
-      '20 users included',
-      '10 GB of storage',
-      'Help center access',
-      'Priority email support',
-      'Dedicated team',
-      'Best deals',
-    ],
-    buttonText: 'Start now',
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'Enterprise',
-    price: '30',
-    description: ['50 users included', '30 GB of storage', 'Help center access', 'Phone & email support'],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
-  },
-]
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import Chip from '@mui/material/Chip'
+import Container from '@mui/material/Container'
+import Divider from '@mui/material/Divider'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import { tiers } from '../data/tiers'
 
 export default function Pricing() {
   return (
@@ -58,13 +36,21 @@ export default function Pricing() {
           Pricing
         </Typography>
         <Typography variant='body1' color='text.secondary'>
-          Quickly build an effective pricing table for your potential customers with this layout. <br />
-          It&apos;s built with default Material UI components with little customization.
+          Quickly build an effective pricing table for your potential customers
+          with this layout. <br />
+          It&apos;s built with default Material UI components with little
+          customization.
         </Typography>
       </Box>
       <Grid container spacing={3} alignItems='center' justifyContent='center'>
         {tiers.map((tier) => (
-          <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+          <Grid
+            item
+            key={tier.title}
+            xs={12}
+            sm={tier.title === 'Enterprise' ? 12 : 6}
+            md={4}
+          >
             <Card
               sx={{
                 p: 2,
@@ -72,8 +58,12 @@ export default function Pricing() {
                 flexDirection: 'column',
                 gap: 4,
                 border: tier.title === 'Professional' ? '1px solid' : undefined,
-                borderColor: tier.title === 'Professional' ? 'primary.main' : undefined,
-                background: tier.title === 'Professional' ? 'linear-gradient(#033363, #021F3B)' : undefined,
+                borderColor:
+                  tier.title === 'Professional' ? 'primary.main' : undefined,
+                background:
+                  tier.title === 'Professional'
+                    ? 'linear-gradient(#033363, #021F3B)'
+                    : undefined,
               }}
             >
               <CardContent>
@@ -83,7 +73,7 @@ export default function Pricing() {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    color: tier.title === 'Professional' ? 'primary.contrastText' : '',
+                    color: tier.title === 'Professional' ? 'grey.100' : '',
                   }}
                 >
                   <Typography component='h3' variant='h6'>
@@ -95,7 +85,8 @@ export default function Pricing() {
                       label={tier.subheader}
                       size='small'
                       sx={{
-                        background: (theme) => (theme.palette.mode === 'light' ? '' : 'none'),
+                        background: (theme) =>
+                          theme.palette.mode === 'light' ? '' : 'none',
                         backgroundColor: 'primary.contrastText',
                         '& .MuiChip-label': {
                           color: 'primary.dark',
@@ -111,7 +102,8 @@ export default function Pricing() {
                   sx={{
                     display: 'flex',
                     alignItems: 'baseline',
-                    color: tier.title === 'Professional' ? 'primary.contrastText' : undefined,
+                    color:
+                      tier.title === 'Professional' ? 'grey.50' : undefined,
                   }}
                 >
                   <Typography component='h3' variant='h2'>
@@ -129,14 +121,32 @@ export default function Pricing() {
                   }}
                 />
                 {tier.description.map((line) => (
-                  <Box key={line} sx={{ py: 1, display: 'flex', gap: 1.5, alignItems: 'center' }}>
+                  <Box
+                    key={line}
+                    sx={{
+                      py: 1,
+                      display: 'flex',
+                      gap: 1.5,
+                      alignItems: 'center',
+                    }}
+                  >
                     <CheckCircleRoundedIcon
-                      sx={{ width: 20, color: tier.title === 'Professional' ? 'primary.light' : 'primary.main' }}
+                      sx={{
+                        width: 20,
+                        color:
+                          tier.title === 'Professional'
+                            ? 'primary.light'
+                            : 'primary.main',
+                      }}
                     />
                     <Typography
-                      component='h6'
                       variant='subtitle2'
-                      sx={{ color: tier.title === 'Professional' ? 'primary.contrastText' : undefined }}
+                      sx={{
+                        color:
+                          tier.title === 'Professional'
+                            ? 'grey.200'
+                            : undefined,
+                      }}
                     >
                       {line}
                     </Typography>
@@ -148,7 +158,7 @@ export default function Pricing() {
                   fullWidth
                   variant={tier.buttonVariant as 'outlined' | 'contained'}
                   component='a'
-                  href='/material-ui/getting-started/templates/checkout/'
+                  href='/checkout/'
                   target='_blank'
                 >
                   {tier.buttonText}
