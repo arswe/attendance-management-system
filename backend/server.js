@@ -11,5 +11,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(colors.rainbow(`Server is running on port http://localhost:${process.env.PORT}`))
+  console.log(colors.rainbow(`backend port http://localhost:${process.env.PORT}`))
 })
