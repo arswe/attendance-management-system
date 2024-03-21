@@ -14,6 +14,10 @@ const books = [
 ]
 
 app.get('/books', (req, res) => {
+  if (req.query.show === 'all') {
+    return res.json(result)
+  }
+
   const result = books.filter((books) => books.price < 10)
   res.json(result)
 })
