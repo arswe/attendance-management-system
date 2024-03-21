@@ -6,8 +6,20 @@ dotenv.config()
 const port = process.env.PORT || 8000
 const app = express()
 
+const books = [
+  { id: 1, title: 'The Great Gatsby', price: 10.99 },
+  { id: 2, title: 'The Catcher in the Rye', price: 7.99 },
+  { id: 3, title: 'To Kill a Mockingbird', price: 6.99 },
+  { id: 4, title: 'Of Mice ', price: 12.99 },
+]
+
+app.get('/books', (req, res) => {
+  const result = books.filter((books) => books.price < 10)
+  res.json(result)
+})
+
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Rest API is running')
 })
 
 app.listen(port, () => {
